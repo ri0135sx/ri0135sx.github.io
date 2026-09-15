@@ -13,18 +13,42 @@
             color: #2c3e50;
             line-height: 1.7;
         }
-        h1 { font-size: 1.8rem; margin-bottom: 5px; }
-        .lab { color: #555; font-size: 0.95rem; margin-bottom: 20px; }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        h1 { font-size: 1.8rem; margin: 0 0 5px 0; }
+        .lab { color: #555; font-size: 0.95rem; }
+        
+        /* 言語切り替えボタンのスタイル */
+        .lang-switch button {
+            background: #8B0000;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .lang-switch button:hover {
+            background: #6d0000;
+        }
+
         h2 { 
             font-size: 1.2rem; 
-            border-bottom: 2px solid #8B0000; 
+            border-bottom: 1px solid #ccc; 
             color: #8B0000; 
             padding-bottom: 4px; 
             margin-top: 35px; 
         }
         ul { padding-left: 20px; }
         li { margin-bottom: 12px; font-size: 0.95rem; }
-        .links { margin: 15px 0 30px 0; }
+        .links { margin: 15px 0 25px 0; }
         .links a {
             display: inline-block;
             margin-right: 12px;
@@ -38,31 +62,51 @@
         }
         .links a:hover { background: #e5e7eb; }
         .award-badge { color: #b45309; font-weight: bold; }
+
+        /* 言語ごとの表示切り替え用クラス */
+        .lang-en { display: none; }
     </style>
 </head>
 <body>
 
-    <h1>市原 賢人 (Kento Ichihara)</h1>
-    <div class="lab">
-        立命館大学大学院 理工学研究科 電子システム専攻<br>
-        知的高性能計算研究室 (Intelligent High-Performance Computing Lab.)
-    </div>
+    <header>
+        <div>
+            <h1>市原 賢人 <span style="font-weight: normal; font-size: 1.2rem;">(Kento Ichihara)</span></h1>
+            <div class="lab">
+                <span class="lang-jp">立命館大学 理工学研究科 電子システム専攻 知的高性能計算研究室</span>
+                <span class="lang-en">Master's Student, Intelligent High-Performance Computing Lab.<br>Electronic System Course, Graduate School of Science and Engineering, Ritsumeikan University</span>
+            </div>
+        </div>
+        <div class="lang-switch">
+            <button id="langBtn" onclick="toggleLanguage()">English</button>
+        </div>
+    </header>
 
     <div class="links">
         <a href="https://github.com/ri0135sx" target="_blank">GitHub Profile</a>
     </div>
 
-    <h2>Research Interests</h2>
+    <h2>
+        <span class="lang-jp">研究分野 (Research Interests)</span>
+        <span class="lang-en">Research Interests</span>
+    </h2>
     <p>
-        Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.
+        <span class="lang-jp">コンピュータビジョン、深層学習、画像修復（単一画像からの雨滴除去・デレイン）、エビデンシャルディープラーニング、マルチクラス雨滴セマンティックセグメンテーション。</span>
+        <span class="lang-en">Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.</span>
     </p>
 
-    <h2>Awards & Honors</h2>
+    <h2>
+        <span class="lang-jp">受賞歴 (Awards & Honors)</span>
+        <span class="lang-en">Awards & Honors</span>
+    </h2>
     <ul>
         <li><span class="award-badge">IEEE SMC Japan Chapter Young Researcher Award</span>, IEEE SMC 2026 (Recipient / Tentative)</li>
-        <li><strong>研究活動最優秀賞</strong>, 立命館大学　理工学部　電子情報工学科 (2026年3月)</li>
+        <li>
+            <span class="lang-jp"><strong>研究活動最優秀賞</strong>, 立命館大学 理工学部 電子情報工学科 (2026年3月)</span>
+            <span class="lang-en"><strong>Best Research Activity Award</strong>, Department of Electronic and Computer Engineering, Ritsumeikan University (May 2026)</span>
+        </li>
         <li><span class="award-badge">Best Paper Award</span>, The 7th International Conference on Neural Computing for Advanced Applications (NCAA 2026)</li>
-        <li><span class="award-badge">Young Professionals Award</span>, IEEE Ritsumeikan University Student Branch English Presentation Competition (2025年11月)</li>
+        <li><span class="award-badge">Young Professionals Award</span>, IEEE Ritsumeikan University Student Branch English Presentation Competition (Nov. 2025)</li>
     </ul>
 
     <h2>Publications</h2>
@@ -83,6 +127,33 @@
             Kento Ichihara, Ryuto Ishibashi, and Lin Meng, "SAAFNet: Self-Adaptive Attention Fusion Network for Single Image Deraining," In proceedings of the 2025 International Conference on Advanced Mechatronic Systems (ICAMechS 2025), Sep. 19-22, 2025 (Xi'an, China).
         </li>
     </ul>
+
+    <!-- 言語切り替えのJavaScript -->
+    <script>
+        let currentLang = 'jp';
+        function toggleLanguage() {
+            const jpElements = document.querySelectorAll('.lang-jp');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btn = document.getElementById('langBtn');
+
+            if (currentLang === 'jp') {
+                jpElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'inline');
+                // ブロック要素の場合は block に戻す
+                document.querySelectorAll('.lab.lang-en').forEach(el => el.style.display = 'block');
+                btn.textContent = '日本語';
+                currentLang = 'en';
+            } else {
+                jpElements.forEach(el => el.style.display = 'inline');
+                enElements.forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.lab.lang-jp').forEach(el => el.style.display = 'block');
+                btn.textContent = 'English';
+                currentLang = 'jp';
+            }
+        }
+        // 初期状態の微調整（CSSのdisplay制御を合わせる）
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+    </script>
 
 </body>
 </html>
