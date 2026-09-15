@@ -10,15 +10,34 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 0 20px;
-            color: #333;
-            line-height: 1.6;
+            color: #2c3e50;
+            line-height: 1.7;
         }
-        h1, h2 { border-bottom: 1px solid #eaeaea; padding-bottom: 0.3em; }
-        .lab { color: #666; font-size: 0.95em; margin-bottom: 20px; }
+        h1 { font-size: 1.8rem; margin-bottom: 5px; }
+        .lab { color: #555; font-size: 0.95rem; margin-bottom: 20px; }
+        h2 { 
+            font-size: 1.2rem; 
+            border-bottom: 2px solid #8B0000; 
+            color: #8B0000; 
+            padding-bottom: 4px; 
+            margin-top: 35px; 
+        }
         ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .links a { margin-right: 15px; color: #0366d6; text-decoration: none; }
-        .links a:hover { text-decoration: underline; }
+        li { margin-bottom: 12px; font-size: 0.95rem; }
+        .links { margin: 15px 0 30px 0; }
+        .links a {
+            display: inline-block;
+            margin-right: 12px;
+            padding: 6px 12px;
+            background: #f4f6f8;
+            border-radius: 4px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #d1d5db;
+        }
+        .links a:hover { background: #e5e7eb; }
+        .award-badge { color: #b45309; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -29,25 +48,39 @@
         知的高性能計算研究室 (Intelligent High-Performance Computing Lab.)
     </div>
 
+    <!-- ご自身のGitHubリンクをセット済みです -->
     <div class="links">
-        <a href="https://github.com/あなたのユーザー名" target="_blank">GitHub</a>
-        <a href="あなたのResearchmapや論文のリンク" target="_blank">Researchmap / Papers</a>
+        <a href="https://github.com/ri0135sx" target="_blank">GitHub</a>
     </div>
 
     <h2>Research Interests</h2>
     <p>
-        Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning.
+        Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.
     </p>
 
-    <h2>Selected Publications</h2>
+    <h2>Awards & Honors</h2>
+    <ul>
+        <li><strong>研究活動最優秀賞</strong>, 立命館大学大学院 理工学研究科 (2026年5月)</li>
+        <li><span class="award-badge">Best Paper Award</span>, The 7th International Conference on Neural Computing for Advanced Applications (NCAA 2026)</li>
+        <li><span class="award-badge">Young Professionals Award</span>, IEEE Ritsumeikan University Student Branch English Presentation Competition (2025年11月)</li>
+    </ul>
+
+    <h2>Publications</h2>
     <ul>
         <li>
-            <strong>Physics-Guided Safety Gating: Balancing Structure Preservation and Raindrop Removal</strong><br>
-            NCAA 2026 (Best Paper Award)
+            Kento Ichihara, and Lin Meng, "Spectral Entropy-Guided Evidential Learning for Real-Time Reliable Perception in Adverse Weather," In proceedings of the 2026 International Conference on Advanced Mechatronic Systems (ICAMechS 2026), Aug. 17-21, 2026 (Osaka, Japan).
         </li>
         <li>
-            <strong>From Frequency Filtering to Coherence Supervision for Raindrop Segmentation in Uncontrolled Environments</strong><br>
-            IEEE SMC 2026
+            Kento ICHIHARA and Lin Meng, "Physics-Guided Safety Gating: Balancing Structure Preservation and Raindrop Removal," The 7th International Conference on Neural Computing for Advanced Applications (NCAA 2026), July 9-12, 2026 (Osaka, Japan). <span class="award-badge">[Best Paper]</span>
+        </li>
+        <li>
+            Kento Ichihara, and Lin Meng, "From Frequency Filtering to Coherence Supervision for Raindrop Segmentation in Uncontrolled Environments," the 2026 IEEE International Conference on Systems, Man, and Cybernetics (SMC), Oct. 4-7, 2026 (Bellevue, WA, USA). (accepted)
+        </li>
+        <li>
+            Kento Ichihara, Lin Meng, "A Systematic Evaluation of Deep Learning Architectures and Training Strategies for Multi-Class Raindrop Segmentation," Proceedings of the 13th International Conference on Identification, Information and Knowledge in the Internet of Things (IIKI 2025), Dec. 18-21, 2025, Chengdu, China.
+        </li>
+        <li>
+            Kento Ichihara, Ryuto Ishibashi, and Lin Meng, "SAAFNet: Self-Adaptive Attention Fusion Network for Single Image Deraining," In proceedings of the 2025 International Conference on Advanced Mechatronic Systems (ICAMechS 2025), Sep. 19-22, 2025 (Xi'an, China).
         </li>
     </ul>
 
