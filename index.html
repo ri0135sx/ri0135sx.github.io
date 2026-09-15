@@ -23,8 +23,8 @@
         }
         h1 { font-size: 1.8rem; margin: 0 0 5px 0; }
         .lab { color: #555; font-size: 0.95rem; }
+        .membership { color: #0366d6; font-weight: bold; font-size: 0.9rem; margin-top: 4px; }
         
-        /* 言語切り替えボタンのスタイル */
         .lang-switch button {
             background: #8B0000;
             color: white;
@@ -48,6 +48,26 @@
         }
         ul { padding-left: 20px; }
         li { margin-bottom: 12px; font-size: 0.95rem; }
+        
+        /* 技術スタックのタグ用スタイル */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .tech-tags li {
+            background: #f1f3f5;
+            border: 1px solid #d8dde2;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            margin-bottom: 0;
+        }
+
         .links { margin: 15px 0 25px 0; }
         .links a {
             display: inline-block;
@@ -63,7 +83,6 @@
         .links a:hover { background: #e5e7eb; }
         .award-badge { color: #b45309; font-weight: bold; }
 
-        /* 言語ごとの表示切り替え用クラス */
         .lang-en { display: none; }
     </style>
 </head>
@@ -73,8 +92,12 @@
         <div>
             <h1>市原 賢人 <span style="font-weight: normal; font-size: 1.2rem;">(Kento Ichihara)</span></h1>
             <div class="lab">
-                <span class="lang-jp">立命館大学 理工学研究科 電子システム専攻 知的高性能計算研究室</span>
+                <span class="lang-jp">立命館大学大学院 理工学研究科 電子システム専攻 知的高性能計算研究室</span>
                 <span class="lang-en">Master's Student, Intelligent High-Performance Computing Lab.<br>Electronic System Course, Graduate School of Science and Engineering, Ritsumeikan University</span>
+            </div>
+            <div class="membership">
+                <span class="lang-jp">📜 IEEE Student Member</span>
+                <span class="lang-en">📜 IEEE Student Member</span>
             </div>
         </div>
         <div class="lang-switch">
@@ -87,13 +110,33 @@
     </div>
 
     <h2>
-        <span class="lang-jp">研究分野 (Research Interests)</span>
-        <span class="lang-en">Research Interests</span>
+        <span class="lang-jp">自己紹介 (About Me)</span>
+        <span class="lang-en">About Me</span>
     </h2>
     <p>
-        <span class="lang-jp">コンピュータビジョン、深層学習、画像修復（単一画像からの雨滴除去・デレイン）、エビデンシャルディープラーニング、マルチクラス雨滴セマンティックセグメンテーション。</span>
-        <span class="lang-en">Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.</span>
+        <span class="lang-jp">岐阜県多治見市出身。小中高と12年間サッカー部に所属。立命館大学大学院 理工学研究科 電子システム専攻、知的高性能計算研究室に所属。コンピュータビジョンと深層学習を軸に、悪天候下におけるロバストな視覚認識や画像修復、エビデンシャルディープラーニングを用いた不確実性評価に関する研究に従事しています。趣味は読書。</span>
+        <span class="lang-en">Born in Tajimi, Gifu, Japan. I played competitive soccer for 12 years through elementary, junior high, and high school. Currently, I am a Master's student in the Intelligent High-Performance Computing Lab at Ritsumeikan University. My research focuses on computer vision and deep learning, particularly robust visual perception and image restoration in adverse weather, as well as uncertainty quantification via evidential deep learning. Outside of research, I enjoy reading books.</span>
     </p>
+
+    <h2>
+        <span class="lang-jp">研究分野 & 技術スタック (Research Interests & Skills)</span>
+        <span class="lang-en">Research Interests & Skills</span>
+    </h2>
+    <p>
+        <span class="lang-jp"><strong>専門分野:</strong> Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.</span>
+        <span class="lang-en"><strong>Research Fields:</strong> Computer Vision, Deep Learning, Image Restoration (Single Image Deraining, Adherent Raindrop Removal), Evidential Deep Learning, Multi-class Raindrop Semantic Segmentation.</span>
+    </p>
+    
+    <p style="margin-bottom: 5px;"><strong class="lang-jp">主な使用技術・ツール:</strong><strong class="lang-en">Technical Stack:</strong></p>
+    <ul class="tech-tags">
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>OpenCV</li>
+        <li>Blender (Python Scripting / Simulation)</li>
+        <li>Linux / Ubuntu</li>
+        <li>Git / GitHub</li>
+        <li>LaTeX</li>
+    </ul>
 
     <h2>
         <span class="lang-jp">受賞歴 (Awards & Honors)</span>
@@ -128,7 +171,6 @@
         </li>
     </ul>
 
-    <!-- 言語切り替えのJavaScript -->
     <script>
         let currentLang = 'jp';
         function toggleLanguage() {
@@ -139,19 +181,17 @@
             if (currentLang === 'jp') {
                 jpElements.forEach(el => el.style.display = 'none');
                 enElements.forEach(el => el.style.display = 'inline');
-                // ブロック要素の場合は block に戻す
-                document.querySelectorAll('.lab.lang-en').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lab.lang-en, .membership.lang-en').forEach(el => el.style.display = 'block');
                 btn.textContent = '日本語';
                 currentLang = 'en';
             } else {
                 jpElements.forEach(el => el.style.display = 'inline');
                 enElements.forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.lab.lang-jp').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.lab.lang-jp, .membership.lang-jp').forEach(el => el.style.display = 'block');
                 btn.textContent = 'English';
                 currentLang = 'jp';
             }
         }
-        // 初期状態の微調整（CSSのdisplay制御を合わせる）
         document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
     </script>
 
