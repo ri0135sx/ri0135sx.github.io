@@ -128,6 +128,14 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
+        
+        /* 要素が1つだけの場合はグリッドを解除し、真ん中に大きく配置する */
+        .img-grid-3 .img-item:only-child {
+            grid-column: 1 / -1;
+            max-width: 65%;
+            margin: 0 auto;
+        }
+
         .img-grid-5 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -153,8 +161,13 @@
             /* 5列のグリッドのうち、5番目の要素（Ours）だけを2列分ぶち抜いて中央に大きく配置する */
             .img-grid-5 .img-item:nth-child(5) {
                 grid-column: span 2;
-                width: 70%;
+                width: 80%;
                 margin: 0 auto;
+            }
+
+            /* スマホ等で1枚だけになった場合のサイズ調整 */
+            .img-grid-3 .img-item:only-child {
+                max-width: 85%;
             }
         }
 
