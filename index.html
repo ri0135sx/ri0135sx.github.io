@@ -149,6 +149,13 @@
         @media (max-width: 768px) {
             .img-grid-3, .img-grid-5 { grid-template-columns: repeat(2, 1fr); }
             .img-grid-2 { grid-template-columns: 1fr; }
+
+            /* 5列のグリッドのうち、5番目の要素（Ours）だけを2列分ぶち抜いて中央に大きく配置する */
+            .img-grid-5 .img-item:nth-child(5) {
+                grid-column: span 2;
+                width: 70%;
+                margin: 0 auto;
+            }
         }
 
         .lang-en { display: none; }
@@ -217,12 +224,16 @@
         </h3>
         <p class="research-desc">
             <span class="lang-jp">深層学習を用いた画像復元において、CNNとTransformerを組み合わせたハイブリッドモデルを構築。大域的な文脈の把握と局所的な特徴抽出を両立させ、LPIPS損失を導入することで、既存手法（NAFNet等）で生じていたアーティファクトを抑制し、背景のテクスチャを自然に復元します。</span>
-            <span class="lang-en">We propose a hybrid model (HKSF) combining CNNs and Transformers for single image deraining. By capturing global contexts and local features simultaneously, and introducing LPIPS loss, our method suppresses artifacts common in existing methods (e.g., NAFNet) and naturally preserves background textures.</span>
+            <span class="lang-en">We propose a hybrid model combining CNNs and Transformers for single image deraining. By capturing global contexts and local features simultaneously, and introducing LPIPS loss, our method suppresses artifacts common in existing methods (e.g., NAFNet) and naturally preserves background textures.</span>
         </p>
         <div class="img-grid-5">
             <div class="img-item">
                 <img src="abst/input.png" alt="Input Rainy Image">
                 <div class="img-caption">Input (Rainy)</div>
+            </div>
+            <div class="img-item">
+                <img src="abst/GT.png" alt="Ground Truth">
+                <div class="img-caption">Ground Truth</div>
             </div>
             <div class="img-item">
                 <img src="abst/NAFNet.png" alt="NAFNet Result">
@@ -235,10 +246,6 @@
             <div class="img-item">
                 <img src="abst/ours.png" alt="Ours Result">
                 <div class="img-caption">Ours</div>
-            </div>
-            <div class="img-item">
-                <img src="abst/GT.png" alt="Ground Truth">
-                <div class="img-caption">Ground Truth</div>
             </div>
         </div>
     </div>
@@ -286,14 +293,14 @@
                 <img src="abst/scale12_0333.png" alt="Synthetic Rain Dataset 1">
                 <div class="img-caption">Urban Scene</div>
             </div>
-            <div class="img-item">
+            <!-- <div class="img-item">
                 <img src="abst/scale12_0298.png" alt="Synthetic Rain Dataset 2">
                 <div class="img-caption">Daylight View</div>
             </div>
             <div class="img-item">
                 <img src="abst/scale12_0200.png" alt="Synthetic Rain Dataset 3">
                 <div class="img-caption">Street View</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
